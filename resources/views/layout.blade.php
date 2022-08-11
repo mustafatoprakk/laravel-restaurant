@@ -34,7 +34,7 @@
                     @if (Auth::user())
                         @if (Auth::user()->is_admin)
                             <li class="nav-item">
-                                <a class="nav-link">Admin</a>
+                                <a class="nav-link" href="{{ route('adminIndex') }}">Admin</a>
                             </li>
                         @endif
                     @endif
