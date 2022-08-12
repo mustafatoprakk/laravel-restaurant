@@ -5,13 +5,14 @@
             <div class="col-md-8 offset-md-2">
                 <div class="card shadow-sm p-3 mb-5 bg-body rounded">
                     <div class="card-body">
-                        <form action="{{ route('categories.store') }}" method="post">
+                        <form action="{{ route('categories.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="text-center pb-3">
                                 <p class="fs-3 font-monospace">Create Category</p>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="name" placeholder="Breakfast">
+                                <input type="text" class="form-control" id="name" name="name"
+                                    placeholder="Breakfast">
                                 <label for="name">Name</label>
                             </div>
                             <div class="input-group mb-3">

@@ -11,17 +11,33 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
-                            <th scope="col">Description</th>
                             <th scope="col">Image</th>
+                            <th scope="col">Description</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody><?php $count = 0; ?>
+                    <tbody><?php $count = 1; ?>
                         @foreach ($categories as $category)
                             <tr>
-                                <th scope="row">{{ $count++ }}</th>
+                                <th scope="row"><?= $count++ ?></th>
                                 <td>{{ $category->name }}</td>
+                                <td>
+                                    <img src="{{ Storage::url($category->image) }}" width="45px" height="30px"
+                                        alt="">
+                                </td>
                                 <td>{{ $category->description }}</td>
-                                <td>image</td>
+                                <td>
+                                    <div class="d-flex">
+                                        <a href="{{ route('categories.edit', $category->id) }}"
+                                            class="btn btn-success me-2">Edit</a>
+                                        <form action="{{ route('categories.update', $category->id) }}" method="post"
+                                            onsubmit="return confirm('Are you sure you want to delete this category?')">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-danger" type="submit">Delete</button>
+                                        </form>
+                                    </div>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
