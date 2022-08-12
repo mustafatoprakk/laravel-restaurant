@@ -78,19 +78,25 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Category $category)
     {
-        $category = Category::findOrFail($id);
-        $category->name = $request->name;
-        $category->description = $request->description;
+        $request->validate([
+            "name" => "required",
+            "description" => "required",
+        ]);
+
+        $image = $category->image;
         if ($request->hasFile("image")) {
+            Storage::delete($category->image);
             $image = $request->file("image")->store('public/categories');
-            $category->image = $image;
-            Storage::delete($request->oldImage);
         }
 
-        $category->update();
-        return redirect()->back();
+        $category->update([
+            "name" => $request->name,
+            "description" => $request->description,
+            "image" => $image
+        ]);
+        return to_route("categories.index");
     }
 
     /**
@@ -99,8 +105,10 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
-        //
+        Storage::delete($category->image);
+        $category->delete();
+        return redirect()->back();
     }
 }
