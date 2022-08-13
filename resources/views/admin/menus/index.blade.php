@@ -16,7 +16,7 @@
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
-                    <tbody><?php $count = 0; ?>
+                    <tbody><?php $count = 1; ?>
                         @foreach ($menus as $menu)
                             <tr>
                                 <th scope="row">{{ $count++ }}</th>
@@ -30,6 +30,12 @@
                                     <div class="d-flex">
                                         <a href="{{ route('menus.edit', $menu->id) }}"
                                             class="btn btn-success me-2">Update</a>
+                                        <form action="{{ route('menus.destroy', $menu->id) }}" method="post"
+                                            onsubmit="return confirm('Are you sure you want to delete this Menu?')">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
                                     </div>
                                 </td>
                             </tr>
