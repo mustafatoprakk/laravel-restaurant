@@ -37,7 +37,8 @@
                                 <select class="form-select" multiple id="category" name="category[]"
                                     aria-label="Floating label select example">
                                     @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        <option value="{{ $category->id }}" @selected($menu->categories->contains($category))>
+                                            {{ $category->name }}</option>
                                     @endforeach
                                 </select>
                                 <label for="floatingSelect">Works with selects</label>
