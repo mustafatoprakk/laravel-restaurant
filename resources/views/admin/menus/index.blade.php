@@ -22,10 +22,16 @@
                                 <th scope="row">{{ $count++ }}</th>
                                 <td>{{ $menu->name }}</td>
                                 <td>
-                                    <img src="{{ Storage::url($menu->image) }}" width="45px" height="30px" alt="">
+                                    <img src="{{ Storage::url($menu->image) }}" width="45px" height="30px"
+                                        alt="">
                                 </td>
-                                <td>{{ $menu->price."$" }}</td>
-                                <td></td>
+                                <td>{{ $menu->price . "$" }}</td>
+                                <td>
+                                    <div class="d-flex">
+                                        <a href="{{ route('menus.edit', $menu->id) }}"
+                                            class="btn btn-success me-2">Update</a>
+                                    </div>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
