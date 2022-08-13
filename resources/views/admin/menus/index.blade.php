@@ -11,9 +11,9 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
-                            <th scope="col">Description</th>
                             <th scope="col">Image</th>
                             <th scope="col">Price</th>
+                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody><?php $count = 0; ?>
@@ -21,9 +21,11 @@
                             <tr>
                                 <th scope="row">{{ $count++ }}</th>
                                 <td>{{ $menu->name }}</td>
-                                <td>{{ $menu->description }}</td>
-                                <td>image</td>
-                                <td>{{ $menu->price }}</td>
+                                <td>
+                                    <img src="{{ Storage::url($menu->image) }}" width="45px" height="30px" alt="">
+                                </td>
+                                <td>{{ $menu->price."$" }}</td>
+                                <td></td>
                             </tr>
                         @endforeach
                     </tbody>

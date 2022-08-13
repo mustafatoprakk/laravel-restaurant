@@ -5,7 +5,7 @@
             <div class="col-md-8 offset-md-2">
                 <div class="card shadow-sm p-3 mb-5 bg-body rounded">
                     <div class="card-body">
-                        <form action="{{ route('menus.store') }}" method="post">
+                        <form action="{{ route('menus.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="text-center pb-3">
                                 <p class="fs-3 font-monospace">Create Menu</p>
@@ -29,10 +29,10 @@
                                 <label for="description">Description</label>
                             </div>
                             <div class="form-floating mb-4">
-                                <select class="form-select" size="3" multiple id="floatingSelect"
+                                <select class="form-select" size="3" multiple id="category" name="category[]"
                                     aria-label="Floating label select example">
                                     @foreach ($categories as $category)
-                                        <option value="1">{{ $category->name }}</option>
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
                                     @endforeach
                                 </select>
                                 <label for="floatingSelect">Works with selects</label>
