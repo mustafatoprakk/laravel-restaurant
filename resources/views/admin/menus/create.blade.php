@@ -23,10 +23,19 @@
                                 <input type="number" class="form-control" id="price" name="price" placeholder="23.5">
                                 <label for="price">Price</label>
                             </div>
-                            <div class="form-floating mb-4">
+                            <div class="form-floating mb-3">
                                 <textarea class="form-control" placeholder="Leave a comment here" id="description" name="description"
                                     style="height: 100px"></textarea>
                                 <label for="description">Description</label>
+                            </div>
+                            <div class="form-floating mb-4">
+                                <select class="form-select" size="3" multiple id="floatingSelect"
+                                    aria-label="Floating label select example">
+                                    @foreach ($categories as $category)
+                                        <option value="1">{{ $category->name }}</option>
+                                    @endforeach
+                                </select>
+                                <label for="floatingSelect">Works with selects</label>
                             </div>
                             <div class="float-end">
                                 <a href="{{ route('menus.index') }}" class="btn btn-lg btn-danger">Back</a>
