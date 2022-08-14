@@ -21,14 +21,20 @@
                                 <label for="guest_number">Guest Number</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="status" name="status"
-                                    placeholder="Available">
-                                <label for="status">Status</label>
+                                <select class="form-select" id="status" name="status" aria-label="Select Status">
+                                    @foreach (App\Enums\TableStatus::cases() as $status)
+                                        <option value="{{ $status->value }}">{{ $status->name }}</option>
+                                    @endforeach
+                                </select>
+                                <label for="status">Select Status</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="location" name="location"
-                                    placeholder="Breakfast">
-                                <label for="location">Location</label>
+                                <select class="form-select" id="location" name="location" aria-label="Select Location">
+                                    @foreach (App\Enums\TableLocation::cases() as $location)
+                                        <option value="{{ $location->value }}">{{ $location->name }}</option>
+                                    @endforeach
+                                </select>
+                                <label for="location">Select Location</label>
                             </div>
                             <div class="float-end">
                                 <a href="{{ route('tables.index') }}" class="btn btn-lg btn-danger">Back</a>

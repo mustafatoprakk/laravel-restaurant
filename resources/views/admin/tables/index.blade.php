@@ -16,14 +16,14 @@
                             <th scope="col">Location</th>
                         </tr>
                     </thead>
-                    <tbody><?php $count = 0; ?>
+                    <tbody><?php $count = 1; ?>
                         @foreach ($tables as $table)
                             <tr>
                                 <th scope="row">{{ $count++ }}</th>
                                 <td>{{ $table->name }}</td>
                                 <td>{{ $table->guest_number }}</td>
-                                <td>{{ $table->status }}</td>
-                                <td>{{ $table->location }}</td>
+                                <td>{{ $table->status->name }}</td>
+                                <td>{{ $table->location->name }}</td>
                             </tr>
                         @endforeach
                     </tbody>
