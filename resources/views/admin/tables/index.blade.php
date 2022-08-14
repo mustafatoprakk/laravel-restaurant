@@ -14,6 +14,7 @@
                             <th scope="col">Guest Number</th>
                             <th scope="col">Status</th>
                             <th scope="col">Location</th>
+                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody><?php $count = 1; ?>
@@ -24,6 +25,11 @@
                                 <td>{{ $table->guest_number }}</td>
                                 <td>{{ $table->status->name }}</td>
                                 <td>{{ $table->location->name }}</td>
+                                <td>
+                                    <div class="d-flex">
+                                        <a href="{{ route('tables.edit', $table->id) }}" class="btn btn-success">Edit</a>
+                                    </div>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
