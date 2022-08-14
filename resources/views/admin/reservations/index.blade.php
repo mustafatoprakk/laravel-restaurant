@@ -15,6 +15,7 @@
                             <th scope="col">Reservation Date</th>
                             <th scope="col">Table</th>
                             <th scope="col">Guests</th>
+                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody><?php $count = 1; ?>
@@ -26,6 +27,12 @@
                                 <td>{{ $reservation->res_date }}</td>
                                 <td>{{ $reservation->table_id }}</td>
                                 <td>{{ $reservation->guest_number }}</td>
+                                <td>
+                                    <div class="d-flex">
+                                        <a href="{{ route('reservations.edit', $reservation->id) }}"
+                                            class="btn btn-success">Edit</a>
+                                    </div>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
