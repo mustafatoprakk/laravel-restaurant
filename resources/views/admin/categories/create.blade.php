@@ -14,15 +14,24 @@
                                 <input type="text" class="form-control" id="name" name="name"
                                     placeholder="Breakfast">
                                 <label for="name">Name</label>
+                                @error('name')
+                                    <div class="alert alert-danger my-1">{{ $message }}</div>
+                                @enderror
                             </div>
-                            <div class="input-group mb-3">
+                            <div class="input-group ">
                                 <input type="file" class="form-control form-control-lg" id="image" name="image">
                                 <label class="input-group-text" for="image">Image Upload</label>
                             </div>
+                            @error('image')
+                                <div class="alert alert-danger mt-1 mb-3">{{ $message }}</div>
+                            @enderror
                             <div class="form-floating mb-4">
                                 <textarea class="form-control" placeholder="Leave a comment here" id="description" name="description"
                                     style="height: 100px"></textarea>
                                 <label for="description">Description</label>
+                                @error('description')
+                                    <div class="alert alert-danger my-1">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="float-end">
                                 <a href="{{ route('categories.index') }}" class="btn btn-lg btn-danger">Back</a>

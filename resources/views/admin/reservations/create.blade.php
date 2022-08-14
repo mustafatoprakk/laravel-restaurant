@@ -14,26 +14,41 @@
                                 <input type="text" class="form-control" id="first_name" name="first_name"
                                     placeholder="Breakfast">
                                 <label for="first_name">First Name</label>
+                                @error('first_name')
+                                    <div class="alert alert-danger my-1">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="last_name" name="last_name"
                                     placeholder="Breakfast">
                                 <label for="last_name">Last Name</label>
+                                @error('last_name')
+                                    <div class="alert alert-danger my-1">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="email" class="form-control" id="email" name="email"
                                     placeholder="Breakfast">
                                 <label for="email">Email</label>
+                                @error('email')
+                                    <div class="alert alert-danger my-1">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="phone" name="phone"
                                     placeholder="Breakfast">
                                 <label for="phone">Phone</label>
+                                @error('phone')
+                                    <div class="alert alert-danger my-1">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="datetime-local" class="form-control" id="res_date" name="res_date"
                                     placeholder="Breakfast">
                                 <label for="res_date">Reservation Date</label>
+                                @error('res_date')
+                                    <div class="alert alert-danger my-1">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-floating mb-3">
                                 <select class="form-select" id="table_id" name="table_id" aria-label="Select Table">
@@ -42,11 +57,17 @@
                                     @endforeach
                                 </select>
                                 <label for="table_id">Table Number</label>
+                                @error('table_id')
+                                    <div class="alert alert-danger my-1">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="guest_number" name="guest_number"
                                     placeholder="Breakfast">
                                 <label for="guest_number">Guest Number</label>
+                                @error('guest_number')
+                                    <div class="alert alert-danger my-1">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="float-end">
                                 <a href="{{ route('reservations.index') }}" class="btn btn-lg btn-danger">Back</a>
