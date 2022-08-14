@@ -10,22 +10,22 @@
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">First Name</th>
-                            <th scope="col">Last Name</th>
+                            <th scope="col">Full Name</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Phone</th>
                             <th scope="col">Reservation Date</th>
+                            <th scope="col">Table</th>
+                            <th scope="col">Guests</th>
                         </tr>
                     </thead>
-                    <tbody><?php $count = 0; ?>
+                    <tbody><?php $count = 1; ?>
                         @foreach ($reservations as $reservation)
                             <tr>
                                 <th scope="row">{{ $count++ }}</th>
-                                <td>{{ $reservation->first_name }}</td>
-                                <td>{{ $reservation->last_name }}</td>
+                                <td>{{ $reservation->first_name . ' ' . $reservation->last_name }}</td>
                                 <td>{{ $reservation->email }}</td>
-                                <td>{{ $reservation->phone }}</td>
                                 <td>{{ $reservation->res_date }}</td>
+                                <td>{{ $reservation->table_id }}</td>
+                                <td>{{ $reservation->guest_number }}</td>
                             </tr>
                         @endforeach
                     </tbody>

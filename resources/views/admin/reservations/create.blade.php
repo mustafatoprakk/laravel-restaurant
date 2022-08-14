@@ -31,13 +31,16 @@
                                 <label for="phone">Phone</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="datetime" class="form-control" id="res_date" name="res_date"
+                                <input type="datetime-local" class="form-control" id="res_date" name="res_date"
                                     placeholder="Breakfast">
                                 <label for="res_date">Reservation Date</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="table_id" name="table_id"
-                                    placeholder="Breakfast">
+                                <select class="form-select" id="table_id" name="table_id" aria-label="Select Table">
+                                    @foreach ($tables as $table)
+                                        <option value="{{ $table->id }}">{{ $table->name }}</option>
+                                    @endforeach
+                                </select>
                                 <label for="table_id">Table Number</label>
                             </div>
                             <div class="form-floating mb-3">
