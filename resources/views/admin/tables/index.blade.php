@@ -27,7 +27,13 @@
                                 <td>{{ $table->location->name }}</td>
                                 <td>
                                     <div class="d-flex">
-                                        <a href="{{ route('tables.edit', $table->id) }}" class="btn btn-success">Edit</a>
+                                        <a href="{{ route('tables.edit', $table->id) }}" class="btn btn-success me-2">Edit</a>
+                                        <form action="{{ route('tables.destroy', $table->id) }}" method="post"
+                                            onsubmit="return confirm('Are you sure you want to delete this Table?')">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
                                     </div>
                                 </td>
                             </tr>
