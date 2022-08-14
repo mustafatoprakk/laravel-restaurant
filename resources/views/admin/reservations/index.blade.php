@@ -30,7 +30,13 @@
                                 <td>
                                     <div class="d-flex">
                                         <a href="{{ route('reservations.edit', $reservation->id) }}"
-                                            class="btn btn-success">Edit</a>
+                                            class="btn btn-success me-2">Edit</a>
+                                        <form action="{{ route('reservations.destroy', $reservation->id) }}" method="post"
+                                            onsubmit="return confirm('Are you sure you want to delete this reservation?')">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
                                     </div>
                                 </td>
                             </tr>
