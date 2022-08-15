@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ReservationStoreRequest;
 use App\Models\Reservation;
 use App\Models\Table;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ReservationController extends Controller
@@ -45,9 +46,17 @@ class ReservationController extends Controller
         if ($request->guest_number > $table->guest_number) {
             return back()->with("warning", "Please choose the table on guests!");
         }
+
+        $request_date = Carbon::parse($request->res_date);
+        foreach ($table->reservation as $res) {
+            if ($res->res_date->format("Y-m-d") == $request_date->format("Y-m-d")) {
+                return back()->with("warning", "This table is reserved for this date!");
+            }
+        }
+
         Reservation::create($request->validated());
 
-        return to_route("reservations.index")->with("success", "Reservation updated successfully");
+        return to_route("reservations.index")->with("success", "Reservation created successfully");
     }
 
     /**
@@ -86,9 +95,16 @@ class ReservationController extends Controller
         if ($request->guest_number > $table->guest_number) {
             return back()->with("warning", "Please choose the table on guests!");
         }
+
+        $request_date = Carbon::parse($request->res_date);
+        foreach ($table->reservations as $res) {
+            if ($res->res_date->format("Y-m-d") == $request_date->format("Y-m-d")) {
+                return back()->with("warning", "This table is reserved for this date!");
+            }
+        }
         $reservation->update($request->validated());
 
-        return to_route("reservations.index")->with("warning", "Reservation updated successfully");
+        return to_route("reservations.index")->with("success", "Reservation updated successfully");
     }
 
     /**
@@ -100,6 +116,6 @@ class ReservationController extends Controller
     public function destroy(Reservation $reservation)
     {
         $reservation->delete();
-        return redirect()->back()->with("danger", "Reservation updated successfully");
+        return redirect()->back()->with("danger", "Reservation deleted successfully");
     }
 }
