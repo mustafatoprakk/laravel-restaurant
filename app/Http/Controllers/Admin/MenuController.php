@@ -53,7 +53,7 @@ class MenuController extends Controller
             $menu->categories()->attach($request->category);
         }
 
-        return to_route("menus.index");
+        return to_route("menus.index")->with("success", "Menu created successfully");
     }
 
     /**
@@ -111,7 +111,7 @@ class MenuController extends Controller
             $menu->categories()->sync($request->category);
         }
 
-        return to_route("menus.index");
+        return to_route("menus.index")->with("warning", "Menu updated successfully");
     }
 
     /**
@@ -125,6 +125,6 @@ class MenuController extends Controller
         Storage::delete($menu->image);
         $menu->categories()->detach();
         $menu->delete();
-        return redirect()->back();
+        return redirect()->back()->with("danger", "Menu deleted successfully");
     }
 }

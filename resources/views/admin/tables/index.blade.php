@@ -1,6 +1,6 @@
 @extends('admin.layout')
 @section('content')
-    <div class="container" style="margin-top: 7%">
+
         <div class="row">
             <div class="col-md-10 offset-md-1">
                 <div class="float-end mb-2">
@@ -42,5 +42,5 @@
                 </table>
             </div>
         </div>
-    </div>
+
 @endsection

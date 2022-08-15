@@ -46,7 +46,7 @@ class CategoryController extends Controller
             "description" => $request->description
         ]);
 
-        return to_route("categories.index");
+        return to_route("categories.index")->with("success", "Category created successfully");
     }
 
     /**
@@ -96,7 +96,7 @@ class CategoryController extends Controller
             "description" => $request->description,
             "image" => $image
         ]);
-        return to_route("categories.index");
+        return to_route("categories.index")->with("warning", "Category updated successfully");
     }
 
     /**
@@ -109,6 +109,6 @@ class CategoryController extends Controller
     {
         Storage::delete($category->image);
         $category->delete();
-        return redirect()->back();
+        return redirect()->back()->with("danger", "Category deleted successfully");
     }
 }

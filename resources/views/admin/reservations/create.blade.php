@@ -1,6 +1,6 @@
 @extends('admin.layout')
 @section('content')
-    <div class="container" style="margin-top: 7%">
+
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 <div class="card shadow-sm p-3 mb-5 bg-body rounded">
@@ -78,5 +78,5 @@
                 </div>
             </div>
         </div>
-    </div>
+
 @endsection

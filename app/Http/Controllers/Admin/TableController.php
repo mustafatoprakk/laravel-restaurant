@@ -45,7 +45,7 @@ class TableController extends Controller
             "location" => $request->location,
         ]);
 
-        return to_route("tables.index");
+        return to_route("tables.index")->with("success", "Table created successfully");
     }
 
     /**
@@ -80,7 +80,7 @@ class TableController extends Controller
     public function update(TableStoreRequest $request, Table $table)
     {
         $table->update($request->validated());
-        return to_route("tables.index");
+        return to_route("tables.index")->with("warning", "Table updated successfully");
     }
 
     /**
@@ -92,6 +92,7 @@ class TableController extends Controller
     public function destroy(Table $table)
     {
         $table->delete();
-        return redirect()->back();
+        $table->reservation()->delete();
+        return redirect()->back()->with("danger", "Table deleted successfully");
     }
 }

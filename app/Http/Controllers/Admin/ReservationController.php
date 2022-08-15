@@ -42,7 +42,7 @@ class ReservationController extends Controller
     {
         Reservation::create($request->validated());
 
-        return to_route("reservations.index");
+        return to_route("reservations.index")->with("success", "Reservation updated successfully");
     }
 
     /**
@@ -79,7 +79,7 @@ class ReservationController extends Controller
     {
         $reservation->update($request->validated());
 
-        return to_route("reservations.index");
+        return to_route("reservations.index")->with("warning", "Reservation updated successfully");
     }
 
     /**
@@ -91,6 +91,6 @@ class ReservationController extends Controller
     public function destroy(Reservation $reservation)
     {
         $reservation->delete();
-        return redirect()->back();
+        return redirect()->back()->with("danger", "Reservation updated successfully");
     }
 }
