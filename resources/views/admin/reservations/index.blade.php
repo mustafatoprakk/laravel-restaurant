@@ -25,7 +25,7 @@
                                 <td>{{ $reservation->first_name . ' ' . $reservation->last_name }}</td>
                                 <td>{{ $reservation->email }}</td>
                                 <td>{{ $reservation->res_date }}</td>
-                                <td>{{ $reservation->table_id }}</td>
+                                <td>{{ $reservation->table->name }}</td>
                                 <td>{{ $reservation->guest_number }}</td>
                                 <td>
                                     <div class="d-flex">

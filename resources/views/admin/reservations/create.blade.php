@@ -44,7 +44,7 @@
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="datetime-local" class="form-control" id="res_date" name="res_date"
-                                    placeholder="Breakfast">
+                                    placeholder="12.04.1990">
                                 <label for="res_date">Reservation Date</label>
                                 @error('res_date')
                                     <div class="alert alert-danger my-1">{{ $message }}</div>
