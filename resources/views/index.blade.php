@@ -5,8 +5,8 @@
             <div class="col-12">
                 <div class="tm-welcome-parallax tm-center-child" data-parallax="scroll" data-image-src="img/img3.jpg">
                     <div class="tm-bg-black-transparent tm-parallax-overlay">
-                        <h2>Our Gallery</h2>
-                        <p>this is a parallax background image</p>
+                        <h2>Our Restaurant</h2>
+                        <p>this is our restaurant</p>
                     </div>
                 </div>
             </div>
