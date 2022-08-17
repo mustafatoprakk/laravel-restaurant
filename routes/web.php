@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('index');
+    $specials = Category::where("name", "breakfast")->first();
+    return view('index', compact("specials"));
 });
 
 

@@ -57,20 +57,20 @@
                                 </figcaption>
                             </figure>
                         </div>
-                        <div class="tm-gallery-item category-2">
-                            <figure class="effect-bubba">
-                                <img src="img/gallery/gallery-item-02.jpg" alt="Gallery item" class="img-fluid" />
-                                <figcaption>
-                                    <h2>Fresh <span>Bubba</span></h2>
-                                    <p>Bubba likes to appear out of thin air.</p>
-                                    <a href="#" class="btn btn-success">View more</a>
-                                    <div class="position-absolute bottom-0 end-0 me-4 pe-1 pb-1 mb-4">76$</div>
-                                    <button
-                                        class="btn btn-primary position-absolute bottom-0 start-0 mb-4 ms-4">asdadsa</button>
-                                        
-                                </figcaption>
-                            </figure>
-                        </div>
+                        @foreach ($specials->menus as $menu)
+                            <div class="tm-gallery-item category-2">
+                                <figure class="effect-bubba">
+                                    <img src="{{ Storage::url($menu->image) }}" alt="Gallery item" class="img-fluid" />
+                                    <figcaption>
+                                        <h2><span>{{ $menu->name }}</span></h2>
+                                        <p>{{ $menu->description }}</p>
+                                        <p>${{ $menu->price }}</p>
+                                        <a href="#" class="btn btn-success">View more</a>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        @endforeach
+
                         <div class="tm-gallery-item category-1">
                             <figure class="effect-bubba">
                                 <img src="img/gallery/gallery-item-03.jpg" alt="Gallery item" class="img-fluid" />
