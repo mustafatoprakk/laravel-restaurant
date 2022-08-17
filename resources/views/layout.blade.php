@@ -81,6 +81,14 @@
     @yield('content')
 
 
+    <div class="footer py-5 bg-light border-top">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, aliquam.
+            </div>
+        </div>
+    </div>
+
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
