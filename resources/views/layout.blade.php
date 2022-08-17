@@ -85,15 +85,6 @@
     @yield('content')
 
 
-    <!-- Page footer -->
-    <footer class="row tm-page-footer ms-5">
-        <p class="col-12 tm-copyright-text mb-0">
-            Copyright &copy; 2019 Next Level Company...
-
-            Designed by Template Mo
-        </p>
-    </footer>
-
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

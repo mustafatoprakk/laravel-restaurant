@@ -9,6 +9,7 @@ use App\Http\Controllers\Frontend\CategoryController as FrontendCategoryControll
 use App\Http\Controllers\Frontend\MenuController as FrontendMenuController;
 use App\Http\Controllers\Frontend\ReservationController as FrontendReservationController;
 use App\Http\Controllers\UserController;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
 
@@ -32,8 +33,8 @@ Route::middleware(["auth", "admin"])->group(function () {   // admin -> yeni yap
 });
 
 
-Route::get('/categories', [FrontendCategoryController::class, "index"])->name("customer.categories.index");
-Route::get('/categories/{category}', [FrontendCategoryController::class, "show"])->name("categories.show");
-Route::get('/menus', [FrontendMenuController::class, "index"])->name("customer.menus.index");
+Route::get('/category', [FrontendCategoryController::class, "index"])->name("customer.categories.index");
+Route::get('/category/{category}', [FrontendCategoryController::class, "show"])->name("customer.categories.show");
+Route::get('/menu', [FrontendMenuController::class, "index"])->name("customer.menus.index");
 Route::get('/reservations/step-one', [FrontendReservationController::class, "stepOne"])->name("reservations.stepOne");
 Route::get('/reservations/step-two', [FrontendReservationController::class, "stepTwo"])->name("reservations.stepTwo");
