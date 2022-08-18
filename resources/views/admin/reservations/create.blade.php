@@ -43,7 +43,8 @@
                         </div>
                         <div class="form-floating mb-3">
                             <input type="datetime-local" class="form-control" id="res_date" name="res_date"
-                                placeholder="12.04.1990">
+                                placeholder="12.04.1990" min="{{ $min_date->format('Y-m-d\TH:i:s') }}"
+                                max="{{ $max_date->format('Y-m-d\TH:i:s') }}">
                             <label for="res_date">Reservation Date</label>
                             @error('res_date')
                                 <div class="alert alert-danger my-1">{{ $message }}</div>

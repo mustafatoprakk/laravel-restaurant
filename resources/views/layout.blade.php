@@ -15,8 +15,8 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light px-3">
-        <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light py-4 shadow-sm  bg-body rounded">
+        <div class="container-fluid px-3">
             <a class="navbar-brand" href="/">Home</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -81,13 +81,6 @@
     @yield('content')
 
 
-    <div class="footer py-5 bg-light border-top">
-        <div class="row">
-            <div class="col-md-8 offset-md-2">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, aliquam.
-            </div>
-        </div>
-    </div>
 
 
     <!-- Option 1: Bootstrap Bundle with Popper -->

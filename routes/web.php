@@ -37,5 +37,10 @@ Route::middleware(["auth", "admin"])->group(function () {   // admin -> yeni yap
 Route::get('/category', [FrontendCategoryController::class, "index"])->name("customer.categories.index");
 Route::get('/category/{category}', [FrontendCategoryController::class, "show"])->name("customer.categories.show");
 Route::get('/menu', [FrontendMenuController::class, "index"])->name("customer.menus.index");
-Route::get('/reservations/step-one', [FrontendReservationController::class, "stepOne"])->name("reservations.stepOne");
-Route::get('/reservations/step-two', [FrontendReservationController::class, "stepTwo"])->name("reservations.stepTwo");
+Route::get('/reservation/step-one', [FrontendReservationController::class, "stepOne"])->name("reservations.stepOne");
+Route::post('/reservation/step-one', [FrontendReservationController::class, "storeStepOne"])->name("reservations.store.stepOne");
+Route::get('/reservation/step-two', [FrontendReservationController::class, "stepTwo"])->name("reservations.stepTwo");
+Route::post('/reservation/step-two', [FrontendReservationController::class, "storeStepTwo"])->name("reservations.store.stepTwo");
+Route::get("/thankyou", function () {
+    return view("thankyou");
+})->name("thankyou");

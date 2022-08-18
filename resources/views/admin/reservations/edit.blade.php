@@ -32,7 +32,9 @@
                         </div>
                         <div class="form-floating mb-3">
                             <input type="datetime-local" class="form-control" id="res_date" name="res_date"
-                                placeholder="Breakfast" value="{{ $reservation->res_date }}">
+                                placeholder="Breakfast"
+                                value="{{ $reservation ? $reservation->res_date->format('Y-m-d\TH:i:s') : '' }}"
+                                min="{{ $min_date->format('Y-m-d\TH:i:s') }}" max="{{ $max_date->format('Y-m-d\TH:i:s') }}">
                             <label for="res_date">Reservation Date</label>
                         </div>
                         <div class="form-floating mb-3">

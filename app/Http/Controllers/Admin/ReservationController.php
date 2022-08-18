@@ -31,7 +31,9 @@ class ReservationController extends Controller
     public function create()
     {
         $tables = Table::where("status", TableStatus::Avaliable)->get();
-        return view("admin.reservations.create", compact("tables"));
+        $min_date = Carbon::today();
+        $max_date = Carbon::now()->addWeek();
+        return view("admin.reservations.create", compact("tables", "min_date", "max_date"));
     }
 
     /**
@@ -79,7 +81,9 @@ class ReservationController extends Controller
     public function edit(Reservation $reservation)
     {
         $tables = Table::where("status", TableStatus::Avaliable)->get();
-        return view("admin.reservations.edit", compact("tables", "reservation"));
+        $min_date = Carbon::today();
+        $max_date = Carbon::now()->addWeek();
+        return view("admin.reservations.edit", compact("tables", "reservation", "min_date", "max_date"));
     }
 
     /**
@@ -97,7 +101,8 @@ class ReservationController extends Controller
         }
 
         $request_date = Carbon::parse($request->res_date);
-        foreach ($table->reservations as $res) {
+        $reservations = $table->reservations()->where("id", "!=", $reservation->id)->get();
+        foreach ($reservations as $res) {
             if ($res->res_date->format("Y-m-d") == $request_date->format("Y-m-d")) {
                 return back()->with("warning", "This table is reserved for this date!");
             }
